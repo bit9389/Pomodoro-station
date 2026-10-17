@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11131b">
+  <meta name="description" content="一个简洁温和的番茄钟和待办清单，陪你专注当下。">
+  <title>专注小站</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <script src="./js/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">ONE THING AT A TIME</div>
+      <h1>专注小站 ✦</h1>
+      <p>把大事拆小，把眼前这一件做好。</p>
+    </header>
+
+    <div class="layout">
+      <section class="card timer-card" aria-label="番茄钟">
+        <div class="modes">
+          <button type="button" id="focusMode" aria-pressed="true">专注</button>
+          <button type="button" id="breakMode" aria-pressed="false">休息</button>
+        </div>
+
+        <div class="clock" id="clock">
+          <div class="clock-inner">
+            <div id="time" role="timer" aria-label="剩余时间">25:00</div>
+            <div id="timerStatus" role="status">准备好开始了吗？</div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="primary" id="toggle">开始专注</button>
+          <button type="button" id="reset">重置</button>
+        </div>
+        <p class="hint">一次只做一件事，已经很棒了。</p>
+      </section>
+
+      <section class="card" aria-label="待办清单">
+        <div class="task-heading">
+          <h2>我的待办</h2>
+          <span id="count">0 / 0 完成</span>
+        </div>
+
+        <div class="progress-track">
+          <div id="progress" style="width: 0%"></div>
+        </div>
+
+        <form id="taskForm">
+          <input
+            id="taskInput"
+            aria-label="新任务"
+            placeholder="接下来想完成什么？"
+            maxlength="100"
+            autocomplete="off"
+            required
+          >
+          <button class="primary" type="submit">添加</button>
+        </form>
+
+        <ul id="taskList"></ul>
+        <p id="empty">☁️ 这里空空的，写下你的第一个小目标吧。</p>
+        <p id="notice" role="status"></p>
+      </section>
+    </div>
+
+    <footer>不必一下子走很远，向前一点就很好。</footer>
+  </main>
+</body>
+</html>
