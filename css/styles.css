@@ -1,1 +1,293 @@
+:root {
+  color-scheme: dark;
+  --bg: #11131b;
+  --card: #1c1f2c;
+  --text: #f1f2fa;
+  --muted: #a4abc2;
+  --accent: #b5a2ff;
+  --line: #34384c;
+}
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 48px 20px;
+  font-family: system-ui, -apple-system, "Microsoft YaHei", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at top left, #32265080, transparent 55%),
+    var(--bg);
+}
+
+main {
+  max-width: 860px;
+  margin: auto;
+}
+
+header {
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 13px;
+  letter-spacing: 3px;
+}
+
+h1 {
+  margin: 10px 0;
+  font-size: clamp(30px, 6vw, 42px);
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.card {
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--card);
+  box-shadow: 0 16px 48px #0002;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  color: var(--text);
+  background: #30354b;
+  transition: transform 0.15s, background 0.15s;
+}
+
+button:hover {
+  background: #414862;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.primary {
+  background: var(--accent);
+  color: #201739;
+  font-weight: 700;
+}
+
+.primary:hover {
+  background: #c8baff;
+}
+
+.timer-card {
+  text-align: center;
+}
+
+.modes {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.modes button {
+  padding: 9px 15px;
+  font-size: 14px;
+}
+
+.modes button[aria-pressed="true"] {
+  background: #514371;
+}
+
+.clock {
+  display: grid;
+  place-items: center;
+  width: 218px;
+  height: 218px;
+  margin: 28px auto;
+  border-radius: 50%;
+  background: conic-gradient(var(--accent) 0%, var(--line) 0);
+}
+
+.clock-inner {
+  display: grid;
+  place-content: center;
+  width: 198px;
+  height: 198px;
+  border-radius: 50%;
+  background: var(--card);
+}
+
+#time {
+  font-size: 49px;
+  font-weight: 750;
+  letter-spacing: -2px;
+  font-variant-numeric: tabular-nums;
+}
+
+#timerStatus {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.hint {
+  font-size: 13px;
+  margin: 20px 0 0;
+}
+
+.task-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h2 {
+  margin: 0;
+  font-size: 19px;
+}
+
+#count {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.progress-track {
+  height: 6px;
+  background: var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 18px 0 22px;
+}
+
+#progress {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+
+form {
+  display: flex;
+  gap: 8px;
+}
+
+#taskInput {
+  min-width: 0;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  background: #141722;
+  color: var(--text);
+}
+
+form button {
+  flex-shrink: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+li label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+
+li input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+
+li span {
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+
+li.done span {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.delete {
+  background: transparent;
+  color: var(--muted);
+  padding: 7px 10px;
+}
+
+#empty {
+  text-align: center;
+  padding: 28px 0 8px;
+  font-size: 14px;
+}
+
+#notice {
+  min-height: 24px;
+  font-size: 13px;
+  color: var(--accent);
+  margin-bottom: 0;
+}
+
+footer {
+  margin-top: 28px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 12px;
+}
+
+@media (max-width: 700px) {
+  body {
+    padding: 28px 16px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 24px;
+  }
+}
